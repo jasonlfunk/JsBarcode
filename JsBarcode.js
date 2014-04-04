@@ -30,7 +30,7 @@
 		canvas.height = options.height;
 		
 		//Paint the canvas white
-		ctx.fillStyle = "#fff";
+		ctx.fillStyle = options.background;
 		ctx.fillRect(0,0,canvas.width,canvas.height);
 		
 		//Creates the barcode out of the encoded binary
@@ -39,10 +39,10 @@
 			var x = i*options.width+options.quite;
 			
 			if(binary[i] == "1"){
-				ctx.fillStyle = "#000";
+				ctx.fillStyle = options.foreground;
 			}
 			else{
-				ctx.fillStyle = "#fff";
+				ctx.fillStyle = options.background;
 			}
 			
 			ctx.fillRect(x,0,options.width,options.height);
@@ -60,7 +60,9 @@
 		width:	2,
 		height:	100,
 		quite: 10,
-		format:	"CODE128"
+		format:	"CODE128",
+		background: "#fff",
+		foreground: "#000"
 	};
 
 })(jQuery);
